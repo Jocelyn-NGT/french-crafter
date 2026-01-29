@@ -1,0 +1,348 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <title>French Crafter</title>
+  <link rel="icon" href="FrenchCrafter_Symboles.png" type="image/png" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <!-- Font -->
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+
+  <style>
+    :root {
+      --black: #0e0e0e;
+      --gold: #c8a45d;
+      --gold-soft: rgba(200,164,93,0.25);
+      --white: #f5f5f5;
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Inter', sans-serif;
+    }
+
+    body {
+      background: var(--black);
+      color: var(--white);
+      line-height: 1.6;
+    }
+
+    a {
+      text-decoration: none;
+      color: inherit;
+    }
+
+    /* ===== HEADER ===== */
+    header {
+      position: fixed;
+      top: 0;
+      width: 100%;
+      height: 80px;
+      background: rgba(14,14,14,0.9);
+      backdrop-filter: blur(10px);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 0 60px;
+      z-index: 1000;
+      border-bottom: 1px solid var(--gold-soft);
+    }
+
+    .logo {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      font-weight: 700;
+      font-size: 18px;
+    }
+
+    .logo img {
+      height: 36px;
+    }
+
+    nav a {
+      margin-left: 40px;
+      position: relative;
+    }
+
+    nav a::after {
+      content: "";
+      position: absolute;
+      bottom: -6px;
+      left: 0;
+      width: 0;
+      height: 1px;
+      background: var(--gold);
+      transition: width 0.3s;
+    }
+
+    nav a:hover::after {
+      width: 100%;
+    }
+
+    /* ===== SECTIONS ===== */
+    section {
+      padding: 140px 80px;
+    }
+
+    h2 {
+      font-size: 42px;
+      margin-bottom: 40px;
+      font-weight: 600;
+    }
+
+    h2 span {
+      color: var(--gold);
+    }
+
+    /* ===== HERO SPLIT ===== */
+    .hero {
+      height: 100vh;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 60px;
+      align-items: center;
+    }
+
+    .hero-content h1 {
+      font-size: 56px;
+      margin-bottom: 20px;
+    }
+
+    .hero-content p {
+      font-size: 18px;
+      opacity: 0.8;
+      max-width: 520px;
+    }
+
+    .hero-image {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .hero-image img {
+      width: 100%;
+      max-width: 780px;
+      border-radius: 16px;
+      object-fit: cover;
+      filter: contrast(1.05) brightness(0.95);
+      box-shadow: 0 30px 80px rgba(0,0,0,0.6);
+      border: 1px solid var(--gold-soft);
+      transform: scale(1);
+      transition: transform 0.1s linear;
+    }
+
+    /* ===== PRESENTATION ===== */
+    .presentation {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 80px;
+      align-items: center;
+    }
+
+    .presentation img {
+      width: 25%;
+      max-width: 280px;
+      margin-left: auto;
+      display: block;
+      border-radius: 16px;
+      filter: grayscale(100%);
+      border: 1px solid var(--gold-soft);
+    }
+
+    .presentation > div {
+      text-align: left;
+      justify-self: start;
+    }
+
+    /* ===== REALISATIONS ===== */
+    .carousel {
+      display: flex;
+      gap: 30px;
+      overflow-x: auto;
+      scroll-snap-type: x mandatory;
+      padding-bottom: 10px;
+    }
+
+    .card {
+      min-width: 320px;
+      background: #151515;
+      border-radius: 16px;
+      scroll-snap-align: start;
+      border: 1px solid var(--gold-soft);
+      transition: transform 0.3s;
+    }
+
+    .card:hover {
+      transform: translateY(-8px);
+    }
+
+    .card img {
+      width: 100%;
+      height: 220px;
+      object-fit: cover;
+      border-radius: 16px 16px 0 0;
+    }
+
+    .card-content {
+      padding: 20px;
+    }
+
+    .card-content h3 {
+      margin-bottom: 10px;
+      font-size: 20px;
+    }
+
+    .card-content p {
+      font-size: 14px;
+      opacity: 0.7;
+    }
+
+    /* ===== FOOTER ===== */
+    footer {
+      padding: 60px;
+      text-align: center;
+      border-top: 1px solid var(--gold-soft);
+      font-size: 14px;
+      opacity: 0.6;
+    }
+
+    /* ===== GRAIN CINEMA ===== */
+    body::after {
+      content: "";
+      position: fixed;
+      inset: 0;
+      pointer-events: none;
+      z-index: 9999;
+      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='200' height='200'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.8' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.04'/%3E%3C/svg%3E");
+      mix-blend-mode: soft-light;
+    }
+
+    /* ===== RESPONSIVE ===== */
+    @media (max-width: 900px) {
+      header {
+        padding: 0 30px;
+      }
+
+      section {
+        padding: 120px 30px;
+      }
+
+      .hero {
+        grid-template-columns: 1fr;
+        height: auto;
+        padding-top: 140px;
+      }
+
+      .presentation {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+<header>
+  <a href="#top" class="logo">
+    <img src="FrenchCrafter_Symboles.png" alt="French Crafter">
+    French Crafter
+  </a>
+  <nav>
+    <a href="#realisations">Réalisation</a>
+    <a href="contact.html">Contactez-nous</a>
+  </nav>
+</header>
+
+<main id="top">
+
+  <!-- HERO -->
+  <section class="hero">
+    <div class="hero-content">
+      <h1>Artisanat digital<br><span style="color:var(--gold)">haut de gamme</span></h1>
+      <p>
+        Nous concevons des expériences visuelles élégantes,
+        durables et sur-mesure pour des marques exigeantes.
+      </p>
+    </div>
+
+    <div class="hero-image">
+      <img src="PXL_20250706_000711591.PORTRAIT.jpg" alt="Réalisation French Crafter">
+    </div>
+  </section>
+
+  <!-- PRESENTATION -->
+  <section>
+    <h2><span>Présentation</span></h2>
+    <div class="presentation">
+      <img src="Portrait.jpeg" alt="Portrait">
+      <div>
+        <p>
+          French Crafter est un studio indépendant spécialisé dans la création
+          d’interfaces modernes, sobres et percutantes.
+        </p>
+        <br>
+        <p>
+          Chaque projet est conçu avec une approche artisanale,
+          où le détail, la matière et le rythme visuel font la différence.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- REALISATIONS -->
+  <section id="realisations">
+    <h2><span>Réalisations</span></h2>
+    <div class="carousel">
+
+      <div class="card">
+        <img src="https://via.placeholder.com/600x400" alt="">
+        <div class="card-content">
+          <h3>Projet Alpha</h3>
+          <p>Site vitrine premium – Design & intégration</p>
+        </div>
+      </div>
+
+      <div class="card">
+        <img src="https://via.placeholder.com/600x400" alt="">
+        <div class="card-content">
+          <h3>Projet Beta</h3>
+          <p>Identité digitale – Direction artistique</p>
+        </div>
+      </div>
+
+      <div class="card">
+        <img src="https://via.placeholder.com/600x400" alt="">
+        <div class="card-content">
+          <h3>Projet Gamma</h3>
+          <p>Landing page – UX & performance</p>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+</main>
+
+<footer>
+  © French Crafter — Tous droits réservés
+</footer>
+
+<!-- ZOOM ON SCROLL -->
+<script>
+  const heroImage = document.querySelector('.hero-image img');
+
+  window.addEventListener('scroll', () => {
+    const scrollY = window.scrollY;
+    const maxZoom = 0.08;
+    const zoom = Math.min(scrollY / 1200, maxZoom);
+    heroImage.style.transform = `scale(${1 + zoom})`;
+  });
+</script>
+
+</body>
+</html>
